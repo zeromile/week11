@@ -15,14 +15,13 @@ if ($conn->connect_error) {
 //echo "Connected successfully, yo";
 
 // Get table records
-$sql = "SELECT * FROM nav";
+$sql = "SELECT * FROM people";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0){
     // output data of each row
     while($row = $result->fetch_assoc()){
-        //echo $row["id"]." ".$row["title"]." ".$row["link"]."<br/>";   
-        echo "<a href='".$row["link"]."'>".$row["title"]."</a><br/>";   
+        echo $row["first_name"]." ".$row["last_name"].", favorite color: ".$row["fav_color"]."<br/>";        echo "<a href=".$row["link"].">".$row["title"]."</a>";
     }
 } else {
     echo "No results";
