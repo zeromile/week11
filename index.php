@@ -1,33 +1,19 @@
 <?php
-$servername = "localhost";
-$username = "zeromile";
-$password = "";
-$dbname = "c9";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: ".$conn->connect_error);
-}
-
-//echo "Connected successfully, yo";
-
-// Get table records
-$sql = "SELECT * FROM nav";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0){
-    // output data of each row
-    while($row = $result->fetch_assoc()){
-        //echo $row["id"]." ".$row["title"]." ".$row["link"]."<br/>";   
-        echo "<a href='".$row["link"]."'>".$row["title"]."</a><br/>";   
-    }
-} else {
-    echo "No results";
-}
-
-$conn->close();
-
+require_once("connect.php");
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <?php include_once("head.php"); ?>
+    <title>Home Page</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <?php require_once("nav.php"); ?> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>
