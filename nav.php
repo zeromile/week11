@@ -17,5 +17,5 @@ if ($result->num_rows > 0){
 
 echo "</ul>";
 
-$conn->close();
+//$conn->close();
 ?>
